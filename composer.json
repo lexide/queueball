@@ -1,8 +1,8 @@
 {
-  "name": "silktide/queueball",
-  "description": "Silktide QueueBall, a message queue abstraction module",
-  "license": "proprietary",
-  "homepage": "https://github.com/silktide/queueball",
+  "name": "lexide/queueball",
+  "description": "Lexide QueueBall, a message queue abstraction module",
+  "license": "MIT",
+  "homepage": "https://github.com/lexide/queueball",
   "require": {
     "php": ">=5.4.0"
   },
@@ -12,12 +12,12 @@
   },
   "autoload": {
     "psr-4": {
-      "Silktide\\QueueBall\\": "src"
+      "Lexide\\QueueBall\\": "src"
     }
   },
   "extra": {
-    "downsider-puzzle-di": {
-      "silktide/syringe": {
+    "lexide/puzzle-di": {
+      "lexide/syringe": {
         "path": "config/syringe.yml"
       }
     }

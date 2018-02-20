@@ -1,6 +1,6 @@
 <?php
 
-namespace Silktide\QueueBall\Message;
+namespace Lexide\QueueBall\Message;
 
 /**
  *

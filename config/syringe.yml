@@ -1,6 +1,6 @@
 services:
     messageFactory:
-        class: Silktide\QueueBall\Message\BasicMessageFactory
+        class: Lexide\QueueBall\Message\BasicMessageFactory
 
     defaultQueue:
         abstract: true

@@ -1,9 +1,9 @@
 <?php
 
-namespace Silktide\QueueBall\Queue;
+namespace Lexide\QueueBall\Queue;
 
-use Silktide\QueueBall\Exception\QueueException;
-use Silktide\QueueBall\Message\QueueMessage;
+use Lexide\QueueBall\Exception\QueueException;
+use Lexide\QueueBall\Message\QueueMessage;
 
 /**
  * Abstract class for encapsulating queue functionality

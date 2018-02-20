@@ -1,6 +1,6 @@
 <?php
 
-namespace Silktide\QueueBall\Exception;
+namespace Lexide\QueueBall\Exception;
 
 /**
  *

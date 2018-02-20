@@ -3,7 +3,7 @@
  * @package queueball
  */
 
-namespace Silktide\QueueBall\Message;
+namespace Lexide\QueueBall\Message;
 
 class BasicMessageFactory implements QueueMessageFactoryInterface
 {
