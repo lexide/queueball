@@ -15,10 +15,17 @@
       "Lexide\\QueueBall\\": "src"
     }
   },
+  "autoload-dev": {
+    "psr-4": {
+      "Lexide\\QueueBall\\Test\\": "test"
+    }
+  },
   "extra": {
     "lexide/puzzle-di": {
-      "lexide/syringe": {
-        "path": "config/syringe.yml"
+      "files": {
+        "lexide/syringe": {
+          "path": "config/syringe.yml"
+        }
       }
     }
   }
