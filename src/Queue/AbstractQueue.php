@@ -19,14 +19,24 @@ abstract class AbstractQueue
      */
     protected $queueId;
 
+    /**
+     * @var int
+     */
     protected $waitTime = 0;
 
     /**
-     * @param string $queueId
+     * @var int
      */
-    public function __construct($queueId = null)
+    protected $maxWaitTime = 20;
+
+    /**
+     * @param string $queueId
+     * @param int $maxWaitTime
+     */
+    public function __construct($queueId = null, $maxWaitTime = 20)
     {
         $this->setQueueId($queueId);
+        $this->maxWaitTime = (int) $maxWaitTime;
     }
 
     /**
@@ -56,10 +66,18 @@ abstract class AbstractQueue
     public function setWaitTime($seconds)
     {
         $seconds = (int) $seconds;
-        if ($seconds < 0 || 20 < $seconds) {
-            throw new \Exception("WaitTime must be a period between 0-20 seconds");
+        if ($seconds < 0 || $this->maxWaitTime < $seconds) {
+            throw new \Exception("WaitTime must be a period between 0 to {$this->maxWaitTime} seconds");
         }
         $this->waitTime = $seconds;
+    }
+
+    /**
+     * @return int
+     */
+    public function getWaitTime()
+    {
+        return $this->waitTime;
     }
 
     /**
