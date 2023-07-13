@@ -14,35 +14,24 @@ use Lexide\QueueBall\Message\QueueMessage;
 abstract class AbstractQueue
 {
 
-    /**
-     * @var string
-     */
-    protected $queueId;
+    protected ?string $queueId;
+    protected float|int $waitTime = 0;
+    protected float|int $maxWaitTime = 20;
 
     /**
-     * @var int
+     * @param ?string $queueId
+     * @param float|int $maxWaitTime
      */
-    protected $waitTime = 0;
-
-    /**
-     * @var int
-     */
-    protected $maxWaitTime = 20;
-
-    /**
-     * @param string $queueId
-     * @param int $maxWaitTime
-     */
-    public function __construct($queueId = null, $maxWaitTime = 20)
+    public function __construct(?string $queueId = null, float|int $maxWaitTime = 20)
     {
         $this->setQueueId($queueId);
-        $this->maxWaitTime = (int) $maxWaitTime;
+        $this->maxWaitTime = $maxWaitTime;
     }
 
     /**
-     * @param string $queueId
+     * @param ?string $queueId
      */
-    public function setQueueId($queueId)
+    public function setQueueId(?string $queueId): void
     {
         $this->queueId = $queueId;
     }
@@ -51,7 +40,7 @@ abstract class AbstractQueue
      * @return string
      * @throws QueueException
      */
-    public function getQueueId()
+    public function getQueueId(): string
     {
         if (empty($this->queueId)) {
             throw new QueueException("No queue ID has been set");
@@ -60,10 +49,10 @@ abstract class AbstractQueue
     }
 
     /**
-     * @param int $seconds
+     * @param float|int $seconds
      * @throws \Exception
      */
-    public function setWaitTime($seconds)
+    public function setWaitTime(float|int $seconds): void
     {
         $seconds = (int) $seconds;
         if ($seconds < 0 || $this->maxWaitTime < $seconds) {
@@ -73,9 +62,9 @@ abstract class AbstractQueue
     }
 
     /**
-     * @return int
+     * @return float|int
      */
-    public function getWaitTime()
+    public function getWaitTime(): float|int
     {
         return $this->waitTime;
     }
@@ -84,34 +73,34 @@ abstract class AbstractQueue
      * @param string $queueId
      * @param array $options
      */
-    abstract public function createQueue($queueId, $options = []);
+    abstract public function createQueue(string $queueId, array $options = []): void;
 
     /**
-     * @param string|null $queueId
+     * @param ?string $queueId
      */
-    abstract public function deleteQueue($queueId = null);
+    abstract public function deleteQueue(?string $queueId = null);
 
     /**
-     * @param mixed $messageBody
-     * @param string|null $queueId
+     * @param string $messageBody
+     * @param ?string $queueId
      */
-    abstract public function sendMessage($messageBody, $queueId = null);
+    abstract public function sendMessage(string $messageBody, ?string $queueId = null): void;
 
     /**
-     * @param string|null $queueId
-     * @param int|null $waitTime
+     * @param ?string $queueId
+     * @param float|int|null $waitTime
      * @return QueueMessage
      */
-    abstract public function receiveMessage($queueId = null, $waitTime = null);
+    abstract public function receiveMessage(?string $queueId = null, float|int|null $waitTime = null): QueueMessage;
 
     /**
      * @param QueueMessage $message
      */
-    abstract public function completeMessage(QueueMessage $message);
+    abstract public function completeMessage(QueueMessage $message): void;
 
     /**
      * @param QueueMessage $message
      */
-    abstract public function returnMessage(QueueMessage $message);
+    abstract public function returnMessage(QueueMessage $message): void;
 
 } 

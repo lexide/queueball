@@ -8,35 +8,20 @@ namespace Lexide\QueueBall\Message;
 class QueueMessage
 {
 
-    /**
-     * @var string
-     */
-    protected $id;
+    protected string $id;
 
-    /**
-     * @var mixed
-     */
-    protected $message;
+    protected string $message;
 
-    /**
-     * @var array
-     */
-    protected $attributes = [];
+    protected array $attributes = [];
 
-    /**
-     * @var string
-     */
-    protected $receiptId;
+    protected string $receiptId;
 
-    /**
-     * @var string
-     */
-    protected $queueId;
+    protected string $queueId;
 
     /**
      * @param string $id
      */
-    public function setId($id)
+    public function setId(string $id): void
     {
         $this->id = $id;
     }
@@ -44,7 +29,7 @@ class QueueMessage
     /**
      * @return string
      */
-    public function getId()
+    public function getId(): string
     {
         return $this->id;
     }
@@ -52,15 +37,15 @@ class QueueMessage
     /**
      * @param mixed $message
      */
-    public function setMessage($message)
+    public function setMessage(string $message): void
     {
         $this->message = $message;
     }
 
     /**
-     * @return mixed
+     * @return ?string
      */
-    public function getMessage()
+    public function getMessage(): ?string
     {
         return $this->message;
     }
@@ -68,7 +53,7 @@ class QueueMessage
     /**
      * @param array $attributes
      */
-    public function setAttributes(array $attributes)
+    public function setAttributes(array $attributes): void
     {
         $this->attributes = $attributes;
     }
@@ -76,7 +61,7 @@ class QueueMessage
     /**
      * @return array
      */
-    public function getAttributes()
+    public function getAttributes(): array
     {
         return $this->attributes;
     }
@@ -84,15 +69,15 @@ class QueueMessage
     /**
      * @param string $receiptId
      */
-    public function setReceiptId($receiptId)
+    public function setReceiptId(string $receiptId): void
     {
         $this->receiptId = $receiptId;
     }
 
     /**
-     * @return string
+     * @return ?string
      */
-    public function getReceiptId()
+    public function getReceiptId(): ?string
     {
         return $this->receiptId;
     }
@@ -100,15 +85,15 @@ class QueueMessage
     /**
      * @param string $queueId
      */
-    public function setQueueId($queueId)
+    public function setQueueId(string $queueId): void
     {
         $this->queueId = $queueId;
     }
 
     /**
-     * @return string
+     * @return ?string
      */
-    public function getQueueId()
+    public function getQueueId(): ?string
     {
         return $this->queueId;
     }

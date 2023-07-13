@@ -3,23 +3,24 @@
 namespace Lexide\QueueBall\Test\Queue;
 
 use Lexide\QueueBall\Queue\AbstractQueue;
+use PHPUnit\Framework\TestCase;
 
-class AbstractQueueTest extends \PHPUnit_Framework_TestCase
+class AbstractQueueTest extends TestCase
 {
 
     /**
      * @dataProvider waitTimeProvider
      *
-     * @param $waitTime
-     * @param $maxWaitTime
+     * @param float|int $waitTime
+     * @param float|int $maxWaitTime
      * @param bool $expectException
      * @throws \Exception
      */
-    public function testSettingWaitTime($waitTime, $maxWaitTime, $expectException = false)
+    public function testSettingWaitTime(float|int $waitTime, float|int $maxWaitTime, bool $expectException = false)
     {
         $queue = new TestQueue(null, $maxWaitTime);
         if ($expectException) {
-            $this->setExpectedException("Exception");
+            $this->expectException("Exception");
         }
         $queue->setWaitTime($waitTime);
         $this->assertSame($waitTime, $queue->getWaitTime());

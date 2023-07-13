@@ -11,7 +11,7 @@ class TestQueue extends AbstractQueue
     /**
      * @inheritDoc
      */
-    public function createQueue($queueId, $options = [])
+    public function createQueue($queueId, $options = []): void
     {
     }
 
@@ -25,28 +25,28 @@ class TestQueue extends AbstractQueue
     /**
      * @inheritDoc
      */
-    public function sendMessage($messageBody, $queueId = null)
+    public function sendMessage($messageBody, $queueId = null): void
     {
     }
 
     /**
      * @inheritDoc
      */
-    public function receiveMessage($queueId = null, $waitTime = null)
+    public function receiveMessage($queueId = null, $waitTime = null): QueueMessage
     {
     }
 
     /**
      * @inheritDoc
      */
-    public function completeMessage(QueueMessage $message)
+    public function completeMessage(QueueMessage $message): void
     {
     }
 
     /**
      * @inheritDoc
      */
-    public function returnMessage(QueueMessage $message)
+    public function returnMessage(QueueMessage $message): void
     {
     }
 }
