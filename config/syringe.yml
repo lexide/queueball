@@ -3,4 +3,5 @@ services:
         class: Lexide\QueueBall\Message\BasicMessageFactory
 
     defaultQueue:
-        abstract: true
+        class: Lexide\QueueBall\Queue\AbstractQueue
+        stub: true
