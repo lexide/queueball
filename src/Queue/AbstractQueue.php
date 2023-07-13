@@ -89,9 +89,9 @@ abstract class AbstractQueue
     /**
      * @param ?string $queueId
      * @param float|int|null $waitTime
-     * @return QueueMessage
+     * @return ?QueueMessage
      */
-    abstract public function receiveMessage(?string $queueId = null, float|int|null $waitTime = null): QueueMessage;
+    abstract public function receiveMessage(?string $queueId = null, float|int|null $waitTime = null): ?QueueMessage;
 
     /**
      * @param QueueMessage $message
